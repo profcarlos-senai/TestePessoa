@@ -1,0 +1,15 @@
+meta {
+  name: PessoaListaTodos
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8080/pessoas
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 200
+}
