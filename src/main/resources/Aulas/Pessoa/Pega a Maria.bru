@@ -1,0 +1,16 @@
+meta {
+  name: Pega a Maria
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{server}}/{{path}}/{{id}}
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 200
+  res.body.nome: eq Maria da Silva
+}

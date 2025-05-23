@@ -1,0 +1,29 @@
+meta {
+  name: Lista tudo
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{server}}/{{path}}
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 200
+  res.body: isArray
+  res.body.length: eq 3
+  res.body[2].fone: eq 46991112233
+}
+
+tests {
+  test("Primeiro deveria ser Eduardo", function () {
+    let nome = res.body[0].nome
+    expect(nome).to.equal("Eduardo da Silva");
+  });
+  test("Segundo deveria ter CPF 22222222222", function () {
+    let cpf = res.body[1].cpf
+    expect(cpf).to.equal(22222222222);
+  });
+}

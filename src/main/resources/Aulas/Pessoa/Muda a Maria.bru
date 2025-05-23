@@ -1,0 +1,30 @@
+meta {
+  name: Muda a Maria
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{server}}/{{path}}/{{id}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Maria da Silva da Silva",
+    "cpf": 99999999999,
+    "fone": 46999999999
+  }
+}
+
+vars:pre-request {
+  id: 0
+}
+
+assert {
+  res.status: eq 200
+  res.body.nome: eq Maria da Silva da Silva
+  res.body.cpf: eq 99999999999
+  res.body.fone: eq 46999999999
+}

@@ -1,0 +1,27 @@
+meta {
+  name: OMG THEY KILLED KENNY
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{server}}/{{path}}/{{id}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Maria da Silva da Silva",
+    "cpf": 99999999999,
+    "fone": 46999999999
+  }
+}
+
+vars:pre-request {
+  id: 0
+}
+
+assert {
+  res.status: eq 204
+}

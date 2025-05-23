@@ -8,6 +8,8 @@
   ],
   "presets": {
     "requestType": "http",
-    "requestUrl": "http://localhost:8080/"
-  }
+    "requestUrl": "{{server}}"
+  },
+  "size": 0.0012636184692382812,
+  "filesCount": 6
 }

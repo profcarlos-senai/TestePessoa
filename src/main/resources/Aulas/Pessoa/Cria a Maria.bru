@@ -1,0 +1,36 @@
+meta {
+  name: Cria a Maria
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{server}}/{{path}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Maria da Silva",
+    "cpf": 99999999999,
+    "fone": 46991112222
+  }
+}
+
+vars:pre-request {
+  id: 0
+}
+
+assert {
+  res.status: eq 200
+  res.body.nome: eq Maria da Silva
+  res.body.cpf: eq 99999999999
+  res.body.fone: eq 46991112222
+}
+
+script:post-response {
+  // salva o id da resposta na variável
+  bru.setVar("id",res.body.id)
+  console.log("novo id = "+res.body.id)
+}
