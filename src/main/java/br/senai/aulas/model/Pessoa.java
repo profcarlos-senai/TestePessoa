@@ -11,10 +11,6 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
 public class Pessoa {
 
     @Id
@@ -27,7 +23,11 @@ public class Pessoa {
     private BigDecimal cpf;
     private BigDecimal fone;
 
-    public Pessoa(String nome, BigDecimal cpf, BigDecimal fone) {
+    public Pessoa() {
+    }
+
+    public Pessoa(Long id, String nome, BigDecimal cpf, BigDecimal fone) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.fone = fone;
@@ -47,5 +47,47 @@ public class Pessoa {
     @Override
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cpf=" + cpf +
+                ", fone=" + fone +
+                '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public BigDecimal getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(BigDecimal cpf) {
+        this.cpf = cpf;
+    }
+
+    public BigDecimal getFone() {
+        return fone;
+    }
+
+    public void setFone(BigDecimal fone) {
+        this.fone = fone;
     }
 }

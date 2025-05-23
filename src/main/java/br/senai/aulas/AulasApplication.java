@@ -20,15 +20,15 @@ public class AulasApplication {
 		return (args) -> {
 			// Adiciona algumas pessoas de exemplo ao banco de dados
 			repository.save(
-					new Pessoa("Eduardo da Silva",
+					new Pessoa(null, "Eduardo da Silva",
 							new BigDecimal("11111111111"),
 							new BigDecimal("46999887766"))
 			);
-			repository.save(new Pessoa("Roberta da Silva",
+			repository.save(new Pessoa(null, "Roberta da Silva",
 					new BigDecimal("22222222222"),
 					new BigDecimal("46912345678"))
 			);
-			repository.save(new Pessoa("Claudio da Silva",
+			repository.save(new Pessoa(null, "Claudio da Silva",
 					new BigDecimal("33333333333"),
 					new BigDecimal("46991112233"))
 			);
